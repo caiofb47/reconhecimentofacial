@@ -45,8 +45,10 @@ while True:
     # Cria os retângulos
     for (x, y, lar, alt) in faces:
         imgS = cv2.rectangle(frame_temp, (x, y), (x + lar, y + alt), (0,255, 255), 2) # RGB
+        
         # Salva cada frame com rosto
-        cv2.imwrite("Pessoas/image"+str(count)+".png",imgS) # se não converter o count para string da pau
+        rec = imgS[y:y+alt,x:x+lar]
+        cv2.imwrite("Pessoas/image"+str(count)+".png",rec) # se não converter o count para string da pau
         # FIM SALVA
 
         # HISTOGRAMA
